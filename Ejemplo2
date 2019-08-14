@@ -1,0 +1,13 @@
+#Cliente
+def recieve_message(self):
+	try:
+		print ("Recibiendo...")
+		data = self.s.recv(BYTE_SIZE)
+		print("\nRecibido...")
+		
+		if self.previous_data != data:
+			fileI0.create_file(data)
+			self.previous_data = data
+		return data
+	except KeyboardInterrupt:
+		self.send_disconnect_signal()
